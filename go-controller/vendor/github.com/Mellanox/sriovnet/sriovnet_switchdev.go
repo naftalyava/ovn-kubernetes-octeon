@@ -224,7 +224,11 @@ func GetRepresentorPortFlavour(netdev string) (PortFlavour, error) {
 		fmt.Errorf("naftaly: true")
 		return PORT_FLAVOUR_PCI_PF, nil
 	}
-	fmt.Errorf("naftaly: false")
+
+	if netdev == "ext" {
+		fmt.Errorf("naftaly: true")
+		return PORT_FLAVOUR_PCI_PF, nil
+	}
 
 	return PORT_FLAVOUR_UNKNOWN, nil
 }
