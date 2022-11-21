@@ -12,7 +12,8 @@ data:
                 "resourcePrefix": "marvell.com",
                 "selectors": {
                     "vendors": ["177d"],
-                    "devices": ["b200", "b203"]
+                    "devices": ["b200", "b203"],
+                    "pfNames": ["ens259f0#1-6"]
                 }
             }
         ]
