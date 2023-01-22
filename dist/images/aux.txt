@@ -1,0 +1,50 @@
+sudo mkdir /etc/systemd/resolved.conf.d/
+sudo vim /etc/systemd/resolved.conf.d/dns_servers.conf
+
+[Resolve]
+DNS=10.5.102.110 10.5.102.111
+
+sudo systemctl restart systemd-resolved
+
+
+sudo rm -f /etc/openvswitch/*
+sudo rm -f /var/lib/openvswitch/*
+
+cat >>/etc/sysctl.d/kubernetes.conf<<EOF
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF
+sudo sysctl --system
+
+
+sudo modprobe overlay
+sudo modprobe br_netfilter
+
+kubectl label node k8s-dpu-octeon k8s.ovn.org/dpu=
+kubectl label node k8s-worker-octeon k8s.ovn.org/dpu-host=
+kubectl label node k8s-worker-octeon feature.node.kubernetes.io/network-sriov.capable="true"
+
+
+sudo route add -net 10.96.0.0 netmask 255.255.0.0 gw 10.5.188.1 dev brext
+
+
+sudo kubeadm init --pod-network-cidr=172.16.0.0/16 --service-cidr=10.96.0.0/16
+
+
+
+sudo kubeadm join 10.5.188.100:6443 --token 1inrab.kkvd9qe2vi1kn7iw --discovery-token-ca-cert-hash sha256:52b4ede3d544ee13b095e1afee1ee2b94828cbc8d3ecf2c9d32c396d04e784a0
+
+
+
+
+
+
+
+CONFIG_NETFILTER_XT_MATCH_COMMENT
+
+
+
+
+git clone "https://sj1git1.cavium.com/IP/SW/kernel/linux"
+git checkout linux-5.4.x-release
+git checkout SDK11.21.10-linux-5.4.x

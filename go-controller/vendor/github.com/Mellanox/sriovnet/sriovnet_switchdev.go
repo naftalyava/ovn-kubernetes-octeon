@@ -194,21 +194,21 @@ func GetVfRepresentorDPU(pfID, vfIndex string) (string, error) {
 	// Dirty hack
 
 	if vfIndex == "0" {
-		return "enP2p15s0v1", nil
+		return "enP2p18s0v1", nil
 	} else if vfIndex == "1" {
-		return "enP2p15s0v2", nil
+		return "enP2p18s0v2", nil
 	} else if vfIndex == "2" {
-		return "enP2p15s0v3", nil
+		return "enP2p18s0v3", nil
 	} else if vfIndex == "3" {
-		return "enP2p15s0v4", nil
+		return "enP2p18s0v4", nil
 	} else if vfIndex == "4" {
-		return "enP2p15s0v5", nil
+		return "enP2p18s0v5", nil
 	} else if vfIndex == "5" {
-		return "enP2p15s0v6", nil
+		return "enP2p18s0v6", nil
 	} else if vfIndex == "6" {
-		return "enP2p15s0v7", nil
+		return "enP2p18s0v7", nil
 	} else if vfIndex == "7" {
-		return "enP2p15s0v8", nil
+		return "enP2p18s0v8", nil
 	} else {
 		return "", fmt.Errorf("naftaly: unexpected pfID(%s). It should be 0 or 1", pfID)
 	}

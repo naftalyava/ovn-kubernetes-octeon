@@ -93,9 +93,9 @@ spec:
         - name: OVNKUBE_NODE_MODE
           value: "dpu"
         - name: OVNKUBE_NODE_MGMT_PORT_NETDEV
-          value: "enP2p15s0v1"
+          value: "enP2p18s0v1"
         - name: OVN_ENCAP_IP
-          value: "10.5.188.120"
+          value: "192.168.1.120"
         - name: OVN_DAEMONSET_VERSION
           value: "3"
         - name: OVNKUBE_LOGLEVEL
@@ -135,7 +135,7 @@ spec:
         - name: K8S_NODE
           value: "k8s-worker-octeon"
         - name: K8S_NODE_IP
-          value: "10.5.188.110"
+          value: "192.168.1.110"
         - name: OVN_GATEWAY_MODE
           value: "shared"
         - name: OVN_GATEWAY_OPTS
@@ -239,7 +239,7 @@ spec:
         - name: K8S_NODE
           value: "k8s-worker-octeon"
         - name: K8S_NODE_IP
-          value: "10.5.188.110"
+          value: "192.168.1.110"
         - name: OVN_DAEMONSET_VERSION
           value: "3"
         - name: OVN_LOGLEVEL_CONTROLLER
